@@ -143,5 +143,5 @@ https://github.com/ashwin-r-k/SKA-iitk
 ## Contact
 
 Ashwin Raju Kharat
-M.Tech, SPASE
+PhD, SPASE
 Indian Institute of Technology Kanpur

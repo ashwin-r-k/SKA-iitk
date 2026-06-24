@@ -279,20 +279,20 @@ ok "Installation / check completed"
 echo "To use later:"
 echo "  conda activate ${ENV_NAME}"
 
-# Enable power savings
-echo "Configuring auto-suspend after 15 minutes..."
+# # Enable power savings
+# echo "Configuring auto-suspend after 15 minutes..."
 
-if command -v gsettings >/dev/null 2>&1; then
-    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'suspend'
-    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 900
+# if command -v gsettings >/dev/null 2>&1; then
+#     gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'suspend'
+#     gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 900
 
-    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'suspend'
-    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
+#     gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'suspend'
+#     gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
 
-    echo "✔ Auto-suspend set to 15 minutes"
-else
-    echo "⚠ GNOME settings not available. Skipping."
-fi
+#     echo "✔ Auto-suspend set to 15 minutes"
+# else
+#     echo "⚠ GNOME settings not available. Skipping."
+# fi
 
 echo
 echo "====================================================="
