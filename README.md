@@ -3,11 +3,37 @@
 Author: Ashwin Raju Kharat
 SPASE, IIT Kanpur
 
-## Overview
+## Quick Installation
+
+Ensure `curl` is available:
+
+```bash
+sudo apt update
+sudo apt install -y curl
+```
+
+Run the installer directly from GitHub:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/ashwin-r-k/SKA-iitk/main/casa_install.sh | bash
 ```
+
+The script will automatically:
+
+* Check internet connectivity
+* Install GNU Radio (if missing)
+* Install Jupyter Notebook (if missing)
+* Install Miniforge/Conda (if missing)
+* Initialize Conda for Bash
+* Download and use the latest `casa.yaml`
+* Create the CASA environment (if missing)
+* Activate the CASA environment
+* Verify CASA installation and print package versions
+
+The script is safe to run multiple times and will skip components that are already installed.
+
+
+## Overview
 
 This script automatically installs and verifies the software required for CASA-based radio astronomy data analysis on Ubuntu systems.
 

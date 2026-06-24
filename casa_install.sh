@@ -260,3 +260,46 @@ echo
 ok "Installation / check completed"
 echo "To use later:"
 echo "  conda activate ${ENV_NAME}"
+
+# Enable power savings
+echo "Configuring auto-suspend after 15 minutes..."
+
+if command -v gsettings >/dev/null 2>&1; then
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'suspend'
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 900
+
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'suspend'
+    gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
+
+    echo "✔ Auto-suspend set to 15 minutes"
+else
+    echo "⚠ GNOME settings not available. Skipping."
+fi
+
+echo
+echo "====================================================="
+echo -e "${GREEN}✔ CASA Installation & Verification Complete${RESET}"
+echo "====================================================="
+echo
+echo -e "${GREEN}✔${RESET} Internet connectivity verified"
+echo -e "${GREEN}✔${RESET} GNU Radio installed and verified"
+echo -e "${GREEN}✔${RESET} Jupyter Notebook installed and verified"
+echo -e "${GREEN}✔${RESET} Conda/Miniforge installed and configured"
+echo -e "${GREEN}✔${RESET} Conda initialized for Bash"
+echo -e "${GREEN}✔${RESET} CASA environment '${ENV_NAME}' verified"
+echo -e "${GREEN}✔${RESET} CASA Python packages imported successfully"
+echo
+echo "Active Environment : ${CONDA_DEFAULT_ENV}"
+echo "Python             : $(python --version 2>&1)"
+echo
+echo "To activate CASA in a new terminal:"
+echo "    conda activate ${ENV_NAME}"
+echo
+echo "Repository:"
+echo "    https://github.com/ashwin-r-k/SKA-iitk"
+echo
+echo "Author: Ashwin Raju Kharat"
+echo "SPASE, IIT Kanpur"
+echo
+echo "System ready for CASA data analysis."
+echo "====================================================="
