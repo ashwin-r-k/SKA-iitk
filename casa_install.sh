@@ -16,7 +16,7 @@ skip() { echo -e "${YELLOW}↷${RESET} $*"; }
 info() { echo -e "${BLUE}•${RESET} $*"; }
 err()  { echo -e "${RED}✘${RESET} $*"; }
 
-SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
+SCRIPT_NAME="SKA-IITK-CASA-SETUP"
 WORKDIR="$(pwd)"
 
 INSTALL_DIR="$HOME/miniforge3"
