@@ -114,6 +114,22 @@ else
     APT_PKGS+=("gnuradio")
 fi
 
+# -----------------------------------------------------
+# AppImage FUSE Support
+# -----------------------------------------------------
+
+if dpkg -s libfuse2 >/dev/null 2>&1 || dpkg -s libfuse2t64 >/dev/null 2>&1; then
+    ok "AppImage FUSE support already installed"
+else
+    info "AppImage FUSE support not found"
+
+    if apt-cache show libfuse2t64 >/dev/null 2>&1; then
+        APT_PKGS+=("libfuse2t64")
+    else
+        APT_PKGS+=("libfuse2")
+    fi
+fi
+
 if install_if_missing "jupyter-notebook" "jupyter-notebook"; then
     :
 elif is_dpkg_installed "python3-notebook"; then
@@ -150,21 +166,7 @@ else
     ok "APT packages already satisfied"
 fi
 
-# -----------------------------------------------------
-# AppImage FUSE Support
-# -----------------------------------------------------
 
-if dpkg -s libfuse2 >/dev/null 2>&1 || dpkg -s libfuse2t64 >/dev/null 2>&1; then
-    ok "AppImage FUSE support already installed"
-else
-    info "AppImage FUSE support not found"
-
-    if apt-cache show libfuse2t64 >/dev/null 2>&1; then
-        APT_PKGS+=("libfuse2t64")
-    else
-        APT_PKGS+=("libfuse2")
-    fi
-fi
 
 # -----------------------------------------------------
 # 2) Conda / Miniforge only if conda is missing
