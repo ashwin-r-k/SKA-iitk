@@ -171,6 +171,11 @@ fi
 # -----------------------------------------------------
 # 2) Conda / Miniforge only if conda is missing
 # -----------------------------------------------------
+
+# add folder for conda
+mkdir ~/.casa
+mkdir ~/.casa/data
+
 CONDA_BIN=""
 CONDA_BASE=""
 
